@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<MobiflightConnector>
+  <outputs>
+    <config guid="8caa42dc-436f-41ad-86bf-8f988abbb257">
+      <active>true</active>
+      <description>Flaps Write</description>
+      <settings msdata:InstanceType="MobiFlight.OutputConfigItem, MFConnector, Version=10.5.3.0, Culture=neutral, PublicKeyToken=null" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <source type="Variable" varType="number" varName="Flaps_Potentiometer" varExpression="$" />
+        <test type="Float" value="1" />
+        <modifiers>
+          <interpolation active="True">
+            <value x="730" y="0" />
+            <value x="806" y="256" />
+            <value x="880" y="1024" />
+          </interpolation>
+        </modifiers>
+        <display type="InputAction" serial="MobiFlight Micro/ SN-6G5-27E" trigger="normal">
+          <analog>
+            <onChange type="MSFS2020CustomInputAction" command="@ 16.0147 * 0 max 16383 min (&gt;K:FLAPS_SET)" presetId="e3388f22-2d1f-475d-88fc-d93676b15e2c" />
+          </analog>
+        </display>
+        <preconditions />
+        <configrefs />
+      </settings>
+    </config>
+    <config guid="aa2585e6-a4d9-4541-a7d7-4249b552d6cf">
+      <active>true</active>
+      <description>Flaps Servo</description>
+      <settings msdata:InstanceType="MobiFlight.OutputConfigItem, MFConnector, Version=10.5.3.0, Culture=neutral, PublicKeyToken=null" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <source type="SimConnect" VarType="CODE" Value="(A:TRAILING EDGE FLAPS LEFT PERCENT,Percent Over 100)" UUID="c19b9300-13da-46f5-8489-56bceb192f64" />
+        <test type="Float" value="1" />
+        <modifiers>
+          <transformation active="True" expression="$*100" />
+        </modifiers>
+        <display type="Servo" serial="MobiFlight Micro/ SN-6G5-27E" trigger="normal" servoAddress="Flaps Position" servoMin="0" servoMax="100" servoMaxRotationPercent="26" />
+        <preconditions />
+        <configrefs />
+      </settings>
+    </config>
+  </outputs>
+  <inputs>
+    <config guid="7cdb6725-916e-4d9a-a796-8db8ab631d7f">
+      <active>true</active>
+      <description>Flaps Input</description>
+      <settings msdata:InstanceType="MobiFlight.InputConfigItem, MFConnector, Version=10.5.3.0, Culture=neutral, PublicKeyToken=null" serial="MobiFlight Micro/ SN-6G5-27E" name="Flap Lever" type="AnalogInput" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <analog>
+          <onChange type="VariableInputAction" varType="number" varName="Flaps_Potentiometer" varExpression="@" />
+        </analog>
+        <preconditions />
+        <configrefs />
+      </settings>
+    </config>
+  </inputs>
+</MobiflightConnector>
