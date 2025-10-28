@@ -50,5 +50,27 @@
         <configrefs />
       </settings>
     </config>
+    <config guid="2228f6b6-3f74-4682-828b-c54472cb519c">
+      <active>true</active>
+      <description>Throttle Input</description>
+      <settings msdata:InstanceType="MobiFlight.InputConfigItem, MFConnector, Version=10.5.3.0, Culture=neutral, PublicKeyToken=null" serial="ThrottleMixture/ SN-881-F86" name="Throttle Input" type="AnalogInput" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <analog>
+          <onChange type="MSFS2020CustomInputAction" command="@ 15 - 16.3015 * 0 max 16383 min (&gt;K:THROTTLE_SET)" presetId="-" />
+        </analog>
+        <preconditions />
+        <configrefs />
+      </settings>
+    </config>
+    <config guid="596d38a7-8c31-4477-b64d-da4d21ebcad7">
+      <active>true</active>
+      <description>Mixture Input</description>
+      <settings msdata:InstanceType="MobiFlight.InputConfigItem, MFConnector, Version=10.5.3.0, Culture=neutral, PublicKeyToken=null" serial="ThrottleMixture/ SN-881-F86" name="Mixture Input" type="AnalogInput" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <analog>
+          <onChange type="MSFS2020CustomInputAction" command="@ 15 - 16.3015 * 0 max 16383 min (&gt;K:MIXTURE_SET)" presetId="-" />
+        </analog>
+        <preconditions />
+        <configrefs />
+      </settings>
+    </config>
   </inputs>
 </MobiflightConnector>
