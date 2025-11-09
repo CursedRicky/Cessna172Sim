@@ -1,6 +1,31 @@
 ﻿<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <MobiflightConnector>
   <outputs>
+    <config guid="f64abbef-8372-415b-94e8-7621569e0c3f">
+      <active>true</active>
+      <description>Indicated Airspeed</description>
+      <settings msdata:InstanceType="MobiFlight.OutputConfigItem, MFConnector, Version=10.5.3.0, Culture=neutral, PublicKeyToken=null" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <source type="SimConnect" VarType="CODE" Value="(A:AIRSPEED INDICATED,Knots)" UUID="bbb26a5f-319a-49bf-b48a-1f4e0da43e32" />
+        <test type="Float" value="180" />
+        <modifiers>
+          <interpolation active="True">
+            <value x="0" y="0" />
+            <value x="40" y="100" />
+            <value x="60" y="230" />
+            <value x="80" y="370" />
+            <value x="100" y="530" />
+            <value x="120" y="658" />
+            <value x="140" y="750" />
+            <value x="160" y="845" />
+            <value x="180" y="925" />
+            <value x="200" y="1030" />
+          </interpolation>
+        </modifiers>
+        <display type="Stepper" serial="Avionics/ SN-9FB-4DA" trigger="normal" stepperAddress="Airspeed" stepperInputRev="360" stepperOutputRev="629" stepperTestValue="500" stepperCompassMode="False" stepperAcceleration="800" stepperSpeed="467" />
+        <preconditions />
+        <configrefs />
+      </settings>
+    </config>
     <config guid="8caa42dc-436f-41ad-86bf-8f988abbb257">
       <active>true</active>
       <description>Flaps Write</description>
@@ -9,9 +34,9 @@
         <test type="Float" value="1" />
         <modifiers>
           <interpolation active="True">
-            <value x="730" y="0" />
-            <value x="806" y="256" />
-            <value x="880" y="1024" />
+            <value x="164" y="0" />
+            <value x="271" y="256" />
+            <value x="350" y="1024" />
           </interpolation>
         </modifiers>
         <display type="InputAction" serial="MobiFlight Micro/ SN-6G5-27E" trigger="normal">
@@ -42,7 +67,7 @@
     <config guid="7cdb6725-916e-4d9a-a796-8db8ab631d7f">
       <active>true</active>
       <description>Flaps Input</description>
-      <settings msdata:InstanceType="MobiFlight.InputConfigItem, MFConnector, Version=10.5.3.0, Culture=neutral, PublicKeyToken=null" serial="MobiFlight Micro/ SN-6G5-27E" name="Flap Lever" type="AnalogInput" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+      <settings msdata:InstanceType="MobiFlight.InputConfigItem, MFConnector, Version=10.5.3.0, Culture=neutral, PublicKeyToken=null" serial="Flaps/ SN-6G5-27E" name="Flap Lever" type="AnalogInput" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
         <analog>
           <onChange type="VariableInputAction" varType="number" varName="Flaps_Potentiometer" varExpression="@" />
         </analog>
@@ -68,6 +93,18 @@
         <analog>
           <onChange type="MSFS2020CustomInputAction" command="@ 15 - 16.3015 * 0 max 16383 min (&gt;K:MIXTURE_SET)" presetId="-" />
         </analog>
+        <preconditions />
+        <configrefs />
+      </settings>
+    </config>
+    <config guid="e1d95836-7a1c-4aad-a2db-b69ae2191b23">
+      <active>true</active>
+      <description>Parkin Breake</description>
+      <settings msdata:InstanceType="MobiFlight.InputConfigItem, MFConnector, Version=10.5.3.0, Culture=neutral, PublicKeyToken=null" serial="ThrottleMixture/ SN-881-F86" name="Parking Brake Sw" type="Button" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <button>
+          <onPress type="MSFS2020CustomInputAction" command="1 (&gt;K:PARKING_BRAKE_SET)" presetId="bfa5f4f9-0f44-49d0-9382-929b6e96c4ef" />
+          <onRelease type="MSFS2020CustomInputAction" command="0 (&gt;K:PARKING_BRAKE_SET)" presetId="3556ab94-09b7-43be-a226-b37ea20d9df1" />
+        </button>
         <preconditions />
         <configrefs />
       </settings>
